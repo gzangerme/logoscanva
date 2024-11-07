@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Insights Report</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        /* Estilo para o layout dos gráficos */
+        .chart-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2em;
+        }
+        .chart-container {
+            width: 48%;
+        }
+        /* Alteração de cor para o título principal */
+        h1 {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Engineering Insights Report</h1>
+
+    <!-- Sessão para exibir os gráficos 1 e 2 lado a lado -->
+    <h2>1. Comparação de Pontuação Média: Juniors vs Seniors (Data Engineers) e Plenos vs Seniors (Data Engineers)</h2>
+    <div class="chart-row">
+        <div class="chart-container">
+            <h3>Juniors vs Seniors (Data Engineers)</h3>
+            {{ junior_senior_chart_data | safe }}
+        </div>
+        <div class="chart-container">
+            <h3>Plenos vs Seniors (Data Engineers)</h3>
+            {{ pleno_senior_chart_data | safe }}
+        </div>
+    </div>
+
+    <!-- Nova sessão para exibir os gráficos 3 e 4 lado a lado -->
+    <h2>2. Comparação de Pontuação Média: Juniors vs Seniors (Analytics Engineers) e Plenos vs Seniors (Analytics Engineers)</h2>
+    <div class="chart-row">
+        <div class="chart-container">
+            <h3>Juniors vs Seniors (Analytics Engineers)</h3>
+            {{ junior_senior_chart_analytics | safe }}
+        </div>
+        <div class="chart-container">
+            <h3>Plenos vs Seniors (Analytics Engineers)</h3>
+            {{ pleno_senior_chart_analytics | safe }}
+        </div>
+    </div>
+
+    <!-- Gráfico restante -->
+    <h2>3. Comparação de Pontuação Média: Seniors (Data vs Analytics Engineers)</h2>
+    {{ senior_comparison_chart | safe }}
+</body>
+</html>
